@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  postgres-db:
+      container_name: mydb-postgres
+      image: postgres-db
+      build: .
+      restart: always
+      environment: 
+        POSTGRES_PASSWORD: password
+        # POSTGRES_HOST_AUTH_METHOD: 0.0.0.0/0
+      ports:
+        - 5432:5432
+      volumes:
+        - ./conf.d/my-postgres.conf:/etc/postgresql/postgresql.conf # set configuations
+        - ./data:/var/lib/postgresql/data #store data
+        - ./scripts:/docker-entrypoint-initdb.d # run scripts inmediatly
