@@ -6,7 +6,7 @@ services:
       container_name: mydb-postgres
       image: postgres-db
       build: .
-      restart: always
+      # restart: always
       environment: 
         POSTGRES_PASSWORD: password
         # POSTGRES_HOST_AUTH_METHOD: 0.0.0.0/0
